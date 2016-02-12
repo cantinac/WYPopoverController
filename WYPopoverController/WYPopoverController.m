@@ -1825,7 +1825,7 @@ static WYPopoverTheme *defaultTheme_ = nil;
     {
         CGSize windowSize = [[UIApplication sharedApplication] keyWindow].bounds.size;
         
-        UIInterfaceOrientation orientation = [[UIApplication sharedApplication] statusBarOrientation];
+        UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];
         
         result = CGSizeMake(320, UIDeviceOrientationIsLandscape(orientation) ? windowSize.width : windowSize.height);
     }
@@ -2144,8 +2144,8 @@ static WYPopoverTheme *defaultTheme_ = nil;
 {
     CGAffineTransform transform = backgroundView.transform;
     
-    UIInterfaceOrientation orientation = [[UIApplication sharedApplication] statusBarOrientation];
-
+    UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];
+    
     CGSize containerViewSize = backgroundView.frame.size;
     
     if (backgroundView.arrowHeight > 0)
@@ -2960,14 +2960,15 @@ static NSString* WYStringFromOrientation(NSInteger orientation) {
 }
 
 static float WYStatusBarHeight() {
-    UIInterfaceOrientation orienation = [[UIApplication sharedApplication] statusBarOrientation];
-    
+    UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];
+
     float statusBarHeight = 0;
     {
         CGRect statusBarFrame = [[UIApplication sharedApplication] statusBarFrame];
         statusBarHeight = statusBarFrame.size.height;
         
-        if (UIDeviceOrientationIsLandscape(orienation))
+        
+        if (UIDeviceOrientationIsLandscape(orientation))
         {
             statusBarHeight = statusBarFrame.size.width;
         }
@@ -3091,17 +3092,17 @@ static CGPoint WYPointRelativeToOrientation(CGPoint origin, CGSize size, UIInter
     }
     else if ([delegate respondsToSelector:@selector(popoverController:willRepositionPopoverToRect:inView:)])
     {
-        CGRect anotherRect;
-        UIView *anotherInView;
+        CGRect anotherRect = CGRectNull;
+        UIView *anotherInView = NULL;
         
         [delegate popoverController:self willRepositionPopoverToRect:&anotherRect inView:&anotherInView];
         
-        if (&anotherRect != NULL)
+        if ( !CGRectEqualToRect(anotherRect, CGRectNull) )
         {
             rect = anotherRect;
         }
         
-        if (&anotherInView != NULL)
+        if (anotherInView != NULL)
         {
             inView = anotherInView;
         }
