@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "575ED5471C6E70B000571414"
-               BuildableName = "WYPopover-ios-fw.framework"
+               BuildableName = "WYPopover.framework"
                BlueprintName = "WYPopover-ios-fw"
                ReferencedContainer = "container:WYPopover.xcodeproj">
             </BuildableReference>
@@ -46,7 +46,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "575ED5471C6E70B000571414"
-            BuildableName = "WYPopover-ios-fw.framework"
+            BuildableName = "WYPopover.framework"
             BlueprintName = "WYPopover-ios-fw"
             ReferencedContainer = "container:WYPopover.xcodeproj">
          </BuildableReference>
@@ -64,7 +64,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "575ED5471C6E70B000571414"
-            BuildableName = "WYPopover-ios-fw.framework"
+            BuildableName = "WYPopover.framework"
             BlueprintName = "WYPopover-ios-fw"
             ReferencedContainer = "container:WYPopover.xcodeproj">
          </BuildableReference>
